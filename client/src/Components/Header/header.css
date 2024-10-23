@@ -1,0 +1,116 @@
+.Header {
+   background-color: #50DA4C;
+   position: relative;
+}
+
+.LogoSvg {
+    margin: 0 auto;
+    width: 50%;
+    max-width: 1024px;
+    text-align: center;
+}
+
+#Logo {
+    padding: 50px 0 0px 0;
+    width: 200px;
+}
+
+.downdiv {
+    position: relative;  
+    width: 100%;              
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.SeparatorSvg {
+    z-index: 10;
+    bottom: 0;  /* Κρατάμε το στοιχείο στο κάτω μέρος του Header */
+    max-width: 100%;
+    margin-bottom: -5px;
+    z-index: 1;
+
+}
+
+.buttons {
+    background-color: #DDBB8E;
+    color: #1C1C1C;
+    padding: 15px 20px;
+    position: absolute;  
+    z-index: 100;        
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+#Separator {
+    fill: #1C1C1C;
+    width: 100%;
+    bottom: 0;
+}
+
+.Link{
+    font-family: 'Space Grotesk', sans-serif;
+    color: #1C1C1C;
+    text-decoration: none;
+}
+
+.Link.active {
+    text-decoration: underline;
+}
+
+.Link:hover {
+    text-decoration: underline;
+}
+
+/* Media query for tablets */
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+
+    #Logo {
+        padding: 50px 0 0px 0;
+        margin-bottom: -40px;
+        width: 200px;
+    }
+
+    
+    #Separator {
+        margin-top: 70px;
+    }
+
+    .buttons {
+        margin-top: 120px;
+       font-size: 21px;
+        gap: 30%;
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 768px) { 
+
+
+    #Logo {
+        padding: 50px 0 0px 0;
+        margin-bottom: -40px;
+        width: 200px;
+    }
+
+    
+    #Separator {
+        fill: #1C1C1C;
+        width: 100%;
+        bottom: 0;
+        margin-top: 70px;
+    }
+
+    .buttons {
+        margin-top: 120px;
+       font-size: 20px;
+        gap: 30%;
+        width: 85%;
+      
+    }
+    
+
+}

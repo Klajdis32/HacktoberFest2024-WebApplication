@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+.Register {
+    min-height: 100vh;
+    background-color: #1C1C1C;
+    color: #F3F0E0;
+    margin: 0 auto;
+    z-index: 500;
+    font-family: 'Space Grotesk', sans-serif;
+    max-width: 1024px;
+    position: relative;
+}
+
+
+.Regtext {
+    text-align: center;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+h1 {
+    font-size: 50px;
+    font-weight: 100;   
+}
+
+h2 {
+    font-weight: 100;
+    font-size: 35px;
+}
+
+
+#togt {
+    margin-top: 35px;
+    font-size: 50px;
+    color: #50DA4C;
+}
+
+.form-container {
+    width: 100%;
+    font-size: 18px;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.form-group1 {
+    gap: 50px;
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.FirstInput {
+    width: 100%;
+}
+
+.SecondInput {
+    width: 100%;
+}
+
+input {
+    font-family: 'Space Grotesk', sans-serif;
+    padding: 10px 10px;
+    background-color: transparent;
+    border: 2px solid white;
+    width: 95%;
+    font-size: 18px;
+    color: white;
+}
+
+select {
+    font-family: 'Space Grotesk', sans-serif;
+    padding: 10px 10px;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid white;
+    width: 100%;
+    font-size: 18px;
+    color: white;
+}
+
+#dateofbirth {
+    border: 1px solid white;
+}
+
+option {
+    background-color: transparent;
+    border: 2px solid white;
+    color: black;
+}
+
+.SecondInput input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+.checkbox {
+    padding: 10px;
+}
+
+textarea {
+    font-family: 'Space Grotesk', sans-serif;
+    padding: 10px 10px;
+    background-color: transparent;
+    border: 1px solid white;
+    max-width: 97.5%;
+    min-width: 97.5%;
+    min-height: 100px;
+    max-height: 400px;
+    font-size: 18px;
+    color: white;
+}
+
+.aboutTextarea {
+    width: 100%;
+}
+
+.interestsdiv {
+    margin-top: 20px;
+    width: 100%;
+    align-items: left;
+
+}
+
+.checkbox-container {
+    display: flex;
+    flex-wrap: wrap; 
+  }
+
+  .checkbox-container label{
+    text-align: left;
+    justify-content: left;
+    margin-right: 100%;
+  }
+
+  .checkbox-container > div {
+    width: 50%;
+    box-sizing: border-box; 
+    padding: 10px 0;
+    display: flex; 
+    align-items: left;
+    justify-content: left;
+  }
+
+  .checkbox-container > div:last-child {
+    width: 70%;
+  }
+
+  .checkbox-container > div input[type="checkbox"] {
+    cursor: pointer;
+    transform: scale(1.5); /* Μεγέθυνση του checkbox */
+    margin-right: 10px; /* Απόσταση από το label */
+  }
+  
+
+.buttondiv {
+    width: 100%;
+    text-align: right;
+}
+
+.tobutton {
+   font-family: 'Space Grotesk', sans-serif;
+   color: white;
+   background-color: #C401C4;
+   border: none;
+   border-radius: 20px;
+   padding: 15px 50px;
+   margin-bottom: 5%;
+   margin-top: 5%;
+   cursor: pointer;
+} 
+
+.tobutton:hover {
+    background-color: #FF8BFF;
+}
+
+.error-message {
+    text-align: right;
+    margin-top: 20px;
+    margin-bottom: -35px;
+    border-radius: 5px;
+}
+
+#low {
+    color: orange;
+}
+
+#high {
+    color: rgb(236, 40, 40);
+}
+
+#success {
+    color: #50DA4C !important;
+}
+
+/* Media query for tablets */
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+    .Register {
+        max-width: 85%;
+    }
+    
+    .Regtext {
+        margin-top: 8%;
+    }
+
+    h1 {
+        font-size: 35px;  
+    }
+    
+    h2 {
+        font-size: 25px;
+    }
+
+    .form-container {
+        margin-top: 8%;
+        font-size: 22px;
+    }
+
+    .error-message {
+        margin-bottom: 0px;
+    }
+
+    
+    .tobutton {
+        font-size: 18px;
+     } 
+
+}
+
+/* Media query for smartphones */
+@media screen and (max-width: 768px) { 
+
+    .Register {
+        max-width: 85%;
+    }
+    
+    .Regtext {
+        margin-top: 15%;
+    }
+
+    h1 {
+        font-size: 25px;
+        font-weight: 100;   
+    }
+    
+    h2 {
+        font-weight: 100;
+        font-size: 20px;
+    }
+
+    .form-container {
+        margin-top: 10%;
+    }
+
+    
+    .interestsdiv {
+        margin-bottom: 10%;
+    }
+    
+    #togt {
+        font-size: 30px;
+    }
+    
+    .form-group1 {
+        margin-bottom: 20px;
+        display: block;
+    }
+
+    
+    .FirstInput {
+        margin-bottom: 20px;
+    }
+
+    .error-message {
+        margin-bottom: 5px;
+        text-align: left;
+    }
+
+        
+    .buttondiv {
+        text-align: center;
+    }
+
+    .tobutton {
+        width: 70%;
+        padding: 15px;
+        margin-bottom: 15%;
+     } 
+     
+     textarea {
+        max-width: 95%;
+        min-width: 95%;
+       
+    }
+    
+
+}
