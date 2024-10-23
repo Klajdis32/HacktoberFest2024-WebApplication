@@ -50,3 +50,5 @@ Following these steps, the project should run without any issues.
 
 ![Alt text](./readmeImages/registerPage.png)
 
+![Alt text](./readmeImages/participantsPage.png)
+
