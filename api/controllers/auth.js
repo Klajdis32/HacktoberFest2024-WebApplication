@@ -1,5 +1,4 @@
 import db from "../server.js";
-import validator from 'validator'; 
 
 export const register = async (req, res, next) => {
     const { formDataWithInterests } = req.body;
@@ -14,17 +13,13 @@ export const register = async (req, res, next) => {
         return res.status(400).json("Please fill all required fields!");
     }
 
-    const cleanName = validator.escape(name);  // Αφαιρεί επικίνδυνα σύμβολα
-    const cleanLastName = validator.escape(lastName);
-    const cleanBio = bio ? validator.escape(bio) : null;
-    
     const validGenders = ['male', 'female', 'non-binary', 'other'];
     if (gender && !validGenders.includes(gender)) {
         return res.status(400).json("Invalid gender value!");
     }
 
     const genderValue = gender === '' ? null : gender;
-    const DateOfBirthValue = dateofbirth && dateofbirth !== '' ? validator.escape(dateofbirth) : null;
+    const DateOfBirthValue = dateofbirth && dateofbirth !== '' ? dateofbirth : null;
 
     try {
         const isGitlabValid = await validateGitlabId(gitlabId);
@@ -53,13 +48,13 @@ export const register = async (req, res, next) => {
         let Interests = Array.isArray(interests) ? interests.join(',') : interests;
 
         const newUser = {
-            name: cleanName,        
-            lastName: cleanLastName,
+            name,        
+            lastName,
             gitlabId,
             kaggleId,
             gender: genderValue, 
             dateofbirth: DateOfBirthValue,
-            bio: cleanBio,          
+            bio,          
             interest: Interests
         };
 
@@ -83,6 +78,7 @@ export const register = async (req, res, next) => {
     }
 };
 
+
 const validateGitlabId = async (gitlabId) => {
     try {
         const response = await fetch(`https://gitlab.com/${gitlabId}`);
@@ -90,11 +86,12 @@ const validateGitlabId = async (gitlabId) => {
         if (response.status === 200) {
             return true;
         } else {
+            console.warn("GitLab ID not valid or not found");
             return false;
         }
     } catch (error) {
-        console.error("Error validating GitLab ID: ", error);
-        return false; 
+        console.error("GitLab validation service is currently unavailable: ", error);
+        return null; 
     }
 };
 
@@ -102,10 +99,15 @@ const validateKaggleId = async (kaggleId) => {
     try {
         const response = await fetch(`https://www.kaggle.com/${kaggleId}`);
         
-        return response.status === 200;
+        if (response.status === 200) {
+            return true;
+        } else {
+            console.warn("Kaggle ID not valid or not found");
+            return false;
+        }
     } catch (error) {
-        console.error("Error validating Kaggle ID: ", error);
-        return false; 
+        console.error("Kaggle validation service is currently unavailable: ", error);
+        return null; 
     }
 };
 
